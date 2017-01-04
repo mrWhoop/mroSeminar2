@@ -99,6 +99,62 @@ Omrežje je sestavljeno iz treh serverjev in osmih odjemalcev. Trije usmerjevaln
 	\centering
 	\includegraphics[width=\textwidth]{omrHrbtenica.png}
 	\caption{Omrežje z optično hrbtenico}
-	\label{bulkTransfer}	
+	\label{opticnaHrbtenica}	
 \end{figure}
+
+\subsection{Omrežje 2}
+\large \bf Opis \par
+\normalfont \normalsize
+Omrežje je sestavljeno iz enega serverja (standardHost), šestih usmerjevalnikov (router-router6) in vsak usmerjevalnik ima določeno število odjemalcev. Usmerjevalnik 6 (router6) ima z razliko od ostalih usmerjevalnikov 5 odjemalcev (razen usmerjevalnik, ki povezuje ostale usmerjevalnike z strežnikom). Povezave v omrežju so bakrene (z hitrostjo 10Mbps)
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\textwidth]{server_client.png}
+	\caption{Omrežje 2 z TCP protokolom}
+	\label{omrezje2}	
+\end{figure}
+
+\subsection{Omrežje 3}
+\large \bf Opis \par
+\normalfont \normalsize
+Kot vidimo iz spodnje slike je podano omrežje enako Omrežju 2 z razliko, da uporablja udp Protokol. Omrežje je sestavljeno iz enega serverja (standardHost), šestih usmerjevalnikov (router-router6) in vsak usmerjevalnik ima določeno število odjemalcev. Usmerjevalnik 6 (router6) ima z razliko od ostalih usmerjevalnikov 5 odjemalcev (razen usmerjevalnik, ki povezuje ostale usmerjevalnike z strežnikom). Povezave v omrežju so bakrene (z hitrostjo 10Mbps).
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\textwidth]{server_client.png}
+	\caption{Omrežje 3 z UDP protokolom}
+	\label{omrezje3}	
+\end{figure}
+
+
+\section{Analiza Omrežij} \par
+\subsection{Simulacija} \par
+\large \bf Opis simulacij \par
+Omrežja smo simulirali z tremi vrstami teoretičnih obremenitev: nadpovprečni obremeniti, povprečni obremenitvi in podpovprečni obremenitvi. Za simuliranje vseh tipov obremenitev bomo povečali/zmanjšali število in pa hitrost pošiljanja paketov od odjemalcev. Simulacije so trajale 120s. 
+
+\subsection{Izbira statistik} \par
+\large \bf Opis statističnih parametrov \par
+\normalfont \normalsize
+Za vse simulacije smo se odločili opazovati specifične statistične metrike, ki nam bodo povedali kakovost in delovanje omrežja. To so
+
+\begin{enumerate}
+	\list Povprečni čas čakanja paketov v čakalni vrsti.
+	\list Število izgubljenih paketov na določenih usmerjevalnikih.
+	\list Življenska doba paketov.RTT
+\end{enumerate}
+
+Hkrati pa smo spreminjali naslednje parametre na simulacijah, saj smo z spremembami bolje videli razliko v delovanju omrežja
+
+\begin{enumerate}
+	\list Dolžina čakalnih vrst.
+	\list Frekvenco pošiljanja paketov.
+	\list Hitrost strežbe paketov
+\end{enumerate}
+
+
+	
+\subsection{Rezultati simulacij} \par
+\subsection{Ugotovitve} \par
+
+\subsection{Analiza ob različnih obremenitvah}
 \end{document}
