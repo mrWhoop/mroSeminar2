@@ -90,19 +90,20 @@ Ob zagonu simulacije se iz odjemalca(client 1) pošlje Syn paket za three-way ha
 \pagebreak
 
 \section{Načrtovanje omrežij}\par
+\subsection{Omrežje 1,2}
 \large \bf Opis \par
 \normalfont \normalsize
-Omrežje je sestavljeno iz treh serverjev in osmih odjemalcev. Trije usmerjevalniki (router 2,5,6) predstavljajo hrbtenico omrežja, nihče od odjelamcev ali serverjev ni neposredno povezan nanje. Med njimi so zelo hitre optične povezave, sicer ima omrežje bakrene kable, ki dosegajo manjše hitrosti prenosa. 
-\subsection{Omrežje z optično hrbtenico}
+Omrežje je sestavljeno iz enega serverja in 5*n odjemalcev, n se prilagaja za simulacijo obremenitve omrežja. Vsi odjemalci pošiljajo ping sporočila na server, izvajajo naiven denial of service napad. Prva verzija omrežja nima optične hrbtenice, druga jo ima med usmerjevalniki 2,5,6. 
+Namen simulacije je ugotoviti, kako hrbtenica pripomore k posredovanju paketov do končnega naslovnika.
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=\textwidth]{omrHrbtenica.png}
+	\includegraphics[width=\textwidth]{omrHrbet.png}
 	\caption{Omrežje z optično hrbtenico}
 	\label{opticnaHrbtenica}	
 \end{figure}
 
-\subsection{Omrežje 2}
+\subsection{Omrežje 3}
 \large \bf Opis \par
 \normalfont \normalsize
 Omrežje je sestavljeno iz enega serverja (standardHost), šestih usmerjevalnikov (router-router6) in vsak usmerjevalnik ima določeno število odjemalcev. Usmerjevalnik 6 (router6) ima z razliko od ostalih usmerjevalnikov 5 odjemalcev (razen usmerjevalnik, ki povezuje ostale usmerjevalnike z strežnikom). Povezave v omrežju so bakrene (z hitrostjo 10Mbps)
@@ -114,7 +115,7 @@ Omrežje je sestavljeno iz enega serverja (standardHost), šestih usmerjevalniko
 	\label{omrezje2}	
 \end{figure}
 
-\subsection{Omrežje 3}
+\subsection{Omrežje 4}
 \large \bf Opis \par
 \normalfont \normalsize
 Kot vidimo iz spodnje slike je podano omrežje enako Omrežju 2 z razliko, da uporablja udp Protokol. Omrežje je sestavljeno iz enega serverja (standardHost), šestih usmerjevalnikov (router-router6) in vsak usmerjevalnik ima določeno število odjemalcev. Usmerjevalnik 6 (router6) ima z razliko od ostalih usmerjevalnikov 5 odjemalcev (razen usmerjevalnik, ki povezuje ostale usmerjevalnike z strežnikom). Povezave v omrežju so bakrene (z hitrostjo 10Mbps).
@@ -130,7 +131,8 @@ Kot vidimo iz spodnje slike je podano omrežje enako Omrežju 2 z razliko, da up
 \section{Analiza Omrežij} \par
 \subsection{Simulacija} \par
 \large \bf Opis simulacij \par
-Omrežja smo simulirali z tremi vrstami teoretičnih obremenitev: nadpovprečni obremeniti, povprečni obremenitvi in podpovprečni obremenitvi. Za simuliranje vseh tipov obremenitev bomo povečali/zmanjšali število in pa hitrost pošiljanja paketov od odjemalcev. Simulacije so trajale 120s. 
+\normalfont \normalsize
+Omrežja smo simulirali z tremi vrstami teoretičnih obremenitev: nadpovprečni obremeniti, povprečni obremenitvi in podpovprečni obremenitvi. Za simuliranje vseh tipov obremenitev bomo povečali/zmanjšali število in pa hitrost pošiljanja paketov od odjemalcev. Simulacije so trajale 120s.  
 
 \subsection{Izbira statistik} \par
 \large \bf Opis statističnih parametrov \par
@@ -138,23 +140,101 @@ Omrežja smo simulirali z tremi vrstami teoretičnih obremenitev: nadpovprečni 
 Za vse simulacije smo se odločili opazovati specifične statistične metrike, ki nam bodo povedali kakovost in delovanje omrežja. To so
 
 \begin{enumerate}
-	\list Povprečni čas čakanja paketov v čakalni vrsti.
-	\list Število izgubljenih paketov na določenih usmerjevalnikih.
-	\list Življenska doba paketov.RTT
+	\item Povprečni čas čakanja paketov v čakalni vrsti.
+	\item Število izgubljenih paketov na določenih usmerjevalnikih.
+	\item Življenska doba paketov.RTT
 \end{enumerate}
 
 Hkrati pa smo spreminjali naslednje parametre na simulacijah, saj smo z spremembami bolje videli razliko v delovanju omrežja
 
 \begin{enumerate}
-	\list Dolžina čakalnih vrst.
-	\list Frekvenco pošiljanja paketov.
-	\list Hitrost strežbe paketov
+	\item Dolžina čakalnih vrst.
+	\item Frekvenco pošiljanja paketov.
+	\item Hitrost strežbe paketov
 \end{enumerate}
 
 
 	
-\subsection{Rezultati simulacij} \par
-\subsection{Ugotovitve} \par
+\subsection{Rezultati in analiza simulacij} \par
 
-\subsection{Analiza ob različnih obremenitvah}
+\subsection{Ping omrežje brez hrbtenice}\par
+
+Podpovprečno obremenitev smo simulirali s 75 odjemalci, omrežje ni imelo hrbtenice, tako so bile vse povezave enako močne - 10Mb/s. Čakalne vrste so lahko sprejele največ dva paketa. Iz spodnjega grafa je razvidno, da kljub krajši čakalni vrsti ni prihajalo do izgube paketov. S spremebo dolžin čakalne vrste na 10 paketov tako nismo dosegli nikakršnega učinka, nasprotno pa je podaljšanje obdelave paketa zvišalo tako RTT kot čas v čakalnih vrstah. 
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\textwidth]{lRtt1.png}
+	\caption{RTT paketov v podpovprečno obremenjenem omrežju}
+	\label{RTT1}	
+\end{figure}
+
+Povprečno obremenitev smo simulirali z 175 odjemalci, sicer so simulacije potekale z enakimi parametri kot podpovprečno obremenjeno omrežje. Tudi v tem primeru čakalne vrste z največ dvema paketoma niso povzročile izgube paketov, je pa dvakrat višji RTT. Deset mest v čakalni vrsti tako spet ni povzročilo razlike, polovično višanje časa obdelave paketov pa je povzročilo manjše izgube paketov.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\textwidth]{aRtt1.png}
+	\caption{RTT paketov v povprečno obremenjenem omrežju}
+	\label{RTT2}	
+\end{figure}
+
+Nadpovprečna obremenitev je zajemala 750 odjemalcev. Prišlo je do velike izgube paketov, zato povprečni RTT v tem primeru ne pove veliko.  V primeru 10 mest v čakalnih vrstah do izgub ne prihaja, RTT pa se linearno povečuje. Spodaj je prikazan RTT v omrežju z 2 mestoma 
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\textwidth]{hRtt1.png}
+	\caption{RTT paketov v nadpovprečno obremenjenem omrežju}
+	\label{RTT3}	
+\end{figure}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\textwidth]{hPL1.png}
+	\caption{Delež izgubljenih paketov v nadpovprečno obremenjenem omrežju}
+	\label{hPL1}	
+\end{figure}
+
+
+\subsection{Ping omrežje s hrbtenico} \par
+
+Hrbtenico smo simulirali na dveh povezavah, med usmerjevalniki 2,5 in 6, hitrost povezav je bila 512 Mbps, sicer 10 Mbps. \par
+
+Za podpovprečno obremenitev smo uporabili 75 klientov, izgub paketov ni bilo ne glede na dolžino čakalnih vrst, tudi ob polovičnem zmanjšanju hitosti obdelave paketov ne. 
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\textwidth]{lRtt2.png}
+	\caption{RTT paketov v podpovprečno obremenjenem omrežju s hrbtenico}
+	\label{RTT4}	
+\end{figure}
+
+Povprečna obremenitev s 150 klienti ni utrpela izgub, ne glede na dolžino čakalnih vrst ali spremebe dolžine obdelave paketov.
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\textwidth]{aRtt2.png}
+	\caption{RTT paketov v povprečno obremenjenem omrežju s hrbtenico}
+	\label{RTT5}	
+\end{figure}
+
+\pagebreak
+
+Nadpovprečna obremenitev s 750 klienti tudi ob pomoči hrbtenice izgublja precej paketov, ob podaljšanju čakalnih vrst na 10 mest je izguba paketov praktično ničelna.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\textwidth]{hRtt2.png}
+	\caption{RTT paketov v nadpovprečno obremenjenem omrežju s hrbtenico}
+	\label{RTT6}	
+\end{figure}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\textwidth]{hLoss2.png}
+	\caption{Delež izgubljenih paketov v nadpovprečno obremenjenem omrežju s hrbtenico}
+	\label{hPL2}	
+\end{figure}
+
+\pagebreak
+\subsection{Primerjava omrežja z optično hrbtenico in brez} \par
+Optična hrbtenica v vseh simulacijah občutno zmanjša RTT, tudi dvakratno. Do izgub še vedno prehaja, če usmerjevalniki ne zmorejo procesirati vseh paketov - kar prikazujejo grafi nadpovprečno obremenjenih omrežij, kjer izgube dosegajo do 1000 paketov, nekateri klienti niso prejeli odgovora na nobenega od poslanih 50 ping sporočil.
+
 \end{document}
