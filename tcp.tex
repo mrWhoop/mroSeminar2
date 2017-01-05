@@ -296,7 +296,7 @@ Za simulacijo nadpovprečne obremenitve smo zmanjšali pasovno širino in poveč
 
 \subsection{Ugotovitve in analiza omrežji 3 in 4}
 Glede na prejete podatke iz simulacij, smo prišli do ugotovitve, da vsa omrežja pravilno simulirajo TCP/IP protokol glede na tri teoretične obremenitve (podpovprečna, povprečna in nadpovprečna obremenitev). 
-Ob nadpovprečni obremenitvi smo ugotovili, da oba omrežja dosežeta nasičenost. Najbolje se to opazi pri simulaciji udp protokola, ki smo ga zajeli pri grafih \ref{4} in \ref{5} oba grafa prikazujeta obnašanje UDP paketov v treh teoretičnih obremenitvah graf \ref{4} prikazuje povprečni čakalni čas v vrsti in graf \ref{5} število izgubljenih paketov. Nato smo analizirali RTT TCP paketov on povprečni obremenitvi, z različnimi dolžinami čakalne vrste \ref{2} ter ob različnih obremenitvah \ref{3}. Opazili smo, da obremenitve ne vplivajo veliko na RTT tcp paketov, ko pa pride do dolžine čakalne vrste pa se grafi že razlikujejo.
+Ob nadpovprečni obremenitvi smo ugotovili, da oba omrežja dosežeta nasičenost. Najbolje se to opazi pri simulaciji udp protokola, ki smo ga zajeli pri grafih \ref{4} in \ref{5} oba grafa prikazujeta obnašanje UDP paketov v treh teoretičnih obremenitvah graf \ref{4} prikazuje povprečni čakalni čas v vrsti in graf \ref{5} število izgubljenih paketov. Nato smo analizirali RTT TCP paketov on povprečni obremenitvi, z različnimi dolžinami čakalne vrste \ref{2} ter ob različnih obremenitvah \ref{3}. Opazili smo, da obremenitve ne vplivajo veliko na RTT tcp paketov, ko pa pride do dolžine čakalne vrste pa se grafi že razlikujejo. Večja kot je čakalna vrsta dlje časa preživijo paketi v omrežju kar je razvidno v grafu \ref{2}. Iz grafa \ref{6} opazimo, da se problem izgube paketov reši z spremembo dolžino čakalne vrste, hkrati pa tudi opazimo, da je optimalna velikost vrste v našem primeru 50, saj se v primeru povprečne čakalne vrste razvidi, da skoraj ni razlike v izgubi paketov kadar imamo večjo velikost vrste. 
 
 \subsection{grafi za omrežji 3 in 4}
 
@@ -310,11 +310,17 @@ Ob nadpovprečni obremenitvi smo ugotovili, da oba omrežja dosežeta nasičenos
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=\textwidth]{TCP_RTT_dolzine_vrst.png}
-	\caption{TCP RTT-ji glede na dolžino vrste}
+	\includegraphics[width=\textwidth]{TCP_RTT_VRSTA_OBREMENITEV.png}
+	\caption{TCP RTT-ji glede na dolžino vrste in obremenitve}
 	\label{2}	
 \end{figure}
 
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\textwidth]{IZGUBE_PAKETOV_VRSTA_OBREMENITEV.png}
+	\caption{TCP RTT-ji glede na dolžino vrste in obremenitve}
+	\label{6}	
+\end{figure}
 
 \begin{figure}[h]
 	\centering
@@ -322,7 +328,6 @@ Ob nadpovprečni obremenitvi smo ugotovili, da oba omrežja dosežeta nasičenos
 	\caption{TCP RTT-ji glede na obremenitev}
 	\label{3}	
 \end{figure}
-
 
 \begin{figure}[h]
 	\centering

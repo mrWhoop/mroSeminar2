@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6100 64-bit) (preloaded format=pdflatex 2016.11.29)  5 JAN 2017 15:59
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6100 64-bit) (preloaded format=pdflatex 2016.11.29)  5 JAN 2017 17:56
 entering extended mode
 **./tcp.tex
 (tcp.tex
@@ -1348,73 +1348,85 @@ File: TCP_cas_vrsta_obremenitev.png Graphic file (type png)
 Package pdftex.def Info: TCP_cas_vrsta_obremenitev.png used on input line 305.
 (pdftex.def)             Requested size: 360.0pt x 254.47913pt.
 
-<TCP_RTT_dolzine_vrst.png, id=65, 583.42969pt x 411.78844pt>
-File: TCP_RTT_dolzine_vrst.png Graphic file (type png)
+<TCP_RTT_VRSTA_OBREMENITEV.png, id=65, 526.96875pt x 274.02374pt>
+File: TCP_RTT_VRSTA_OBREMENITEV.png Graphic file (type png)
 
-<use TCP_RTT_dolzine_vrst.png>
-Package pdftex.def Info: TCP_RTT_dolzine_vrst.png used on input line 313.
-(pdftex.def)             Requested size: 360.0pt x 254.09978pt.
+<use TCP_RTT_VRSTA_OBREMENITEV.png>
+Package pdftex.def Info: TCP_RTT_VRSTA_OBREMENITEV.png used on input line 313.
+(pdftex.def)             Requested size: 360.0pt x 187.20755pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<TCP_RTT_obremenitev_omrezja.png, id=66, 594.72188pt x 328.22626pt>
+<IZGUBE_PAKETOV_VRSTA_OBREMENITEV.png, id=66, 544.28343pt x 327.47343pt>
+File: IZGUBE_PAKETOV_VRSTA_OBREMENITEV.png Graphic file (type png)
+
+<use IZGUBE_PAKETOV_VRSTA_OBREMENITEV.png>
+Package pdftex.def Info: IZGUBE_PAKETOV_VRSTA_OBREMENITEV.png used on input lin
+e 320.
+(pdftex.def)             Requested size: 360.0pt x 216.59784pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<TCP_RTT_obremenitev_omrezja.png, id=67, 594.72188pt x 328.22626pt>
 File: TCP_RTT_obremenitev_omrezja.png Graphic file (type png)
 
 <use TCP_RTT_obremenitev_omrezja.png>
-Package pdftex.def Info: TCP_RTT_obremenitev_omrezja.png used on input line 321
+Package pdftex.def Info: TCP_RTT_obremenitev_omrezja.png used on input line 327
 .
 (pdftex.def)             Requested size: 360.0pt x 198.68016pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<UDP_cas_cakanja_obremenitev.png, id=67, 553.31718pt x 357.58594pt>
+<UDP_cas_cakanja_obremenitev.png, id=68, 553.31718pt x 357.58594pt>
 File: UDP_cas_cakanja_obremenitev.png Graphic file (type png)
 
 <use UDP_cas_cakanja_obremenitev.png>
-Package pdftex.def Info: UDP_cas_cakanja_obremenitev.png used on input line 329
+Package pdftex.def Info: UDP_cas_cakanja_obremenitev.png used on input line 334
 .
 (pdftex.def)             Requested size: 360.0pt x 232.65181pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<UDP_izgubljeni_paketi_obremenitev.png, id=68, 522.45187pt x 327.47343pt>
+<UDP_izgubljeni_paketi_obremenitev.png, id=69, 522.45187pt x 327.47343pt>
 File: UDP_izgubljeni_paketi_obremenitev.png Graphic file (type png)
 
 <use UDP_izgubljeni_paketi_obremenitev.png>
 Package pdftex.def Info: UDP_izgubljeni_paketi_obremenitev.png used on input li
-ne 336.
+ne 341.
 (pdftex.def)             Requested size: 360.0pt x 225.6521pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[13 <./TCP_cas_vrsta_obremenitev.png>] [14 <./TCP_RTT_dolzine_vrst.png> <./TCP_
-RTT_obremenitev_omrezja.png>] [15 <./UDP_cas_cakanja_obremenitev.png> <./UDP_iz
-gubljeni_paketi_obremenitev.png>] (tcp.aux) ) 
+[13 <./TCP_cas_vrsta_obremenitev.png>] [14 <./TCP_RTT_VRSTA_OBREMENITEV.png> <.
+/IZGUBE_PAKETOV_VRSTA_OBREMENITEV.png>] [15 <./TCP_RTT_obremenitev_omrezja.png>
+ <./UDP_cas_cakanja_obremenitev.png>] [16 <./UDP_izgubljeni_paketi_obremenitev.
+png>] (tcp.aux) ) 
 Here is how much of TeX's memory you used:
- 7377 strings out of 493333
- 108136 string characters out of 3130576
- 162999 words of memory out of 3000000
- 10746 multiletter control sequences out of 15000+200000
+ 7383 strings out of 493333
+ 108363 string characters out of 3130576
+ 163999 words of memory out of 3000000
+ 10751 multiletter control sequences out of 15000+200000
  53112 words of font info for 39 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 42i,8n,43p,931b,363s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Users/root/AppData/Local/Progr
-ams/MiKTeX 2.9/fonts/enc/dvips/lm/lm-ec.enc}{C:/Users/root/AppData/Local/Progra
-ms/MiKTeX 2.9/fonts/enc/dvips/lm/lm-mathsy.enc}<C:/Users/root/AppData/Local/Pro
-grams/MiKTeX 2.9/fonts/type1/public/lm/lmbx12.pfb><C:/Users/root/AppData/Local/
-Programs/MiKTeX 2.9/fonts/type1/public/lm/lmbx9.pfb><C:/Users/root/AppData/Loca
-l/Programs/MiKTeX 2.9/fonts/type1/public/lm/lmr10.pfb><C:/Users/root/AppData/Lo
-cal/Programs/MiKTeX 2.9/fonts/type1/public/lm/lmr9.pfb><C:/Users/root/AppData/L
-ocal/Programs/MiKTeX 2.9/fonts/type1/public/lm/lmri10.pfb><C:/Users/root/AppDat
-a/Local/Programs/MiKTeX 2.9/fonts/type1/public/lm/lmro10.pfb><C:/Users/root/App
-Data/Local/Programs/MiKTeX 2.9/fonts/type1/public/lm/lmsy10.pfb>
-Output written on tcp.pdf (15 pages, 457389 bytes).
+ 42i,8n,43p,1068b,363s stack positions out of 5000i,500n,10000p,200000b,50000s
+{C:/Users/root/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvi
+ps/lm/lm-ec.enc}{C:/Users/root/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvip
+s/lm/lm-mathsy.enc}<C:/Users/root/AppData/Local/Programs/MiKTeX 2.9/fonts/type1
+/public/lm/lmbx12.pfb><C:/Users/root/AppData/Local/Programs/MiKTeX 2.9/fonts/ty
+pe1/public/lm/lmbx9.pfb><C:/Users/root/AppData/Local/Programs/MiKTeX 2.9/fonts/
+type1/public/lm/lmr10.pfb><C:/Users/root/AppData/Local/Programs/MiKTeX 2.9/font
+s/type1/public/lm/lmr9.pfb><C:/Users/root/AppData/Local/Programs/MiKTeX 2.9/fon
+ts/type1/public/lm/lmri10.pfb><C:/Users/root/AppData/Local/Programs/MiKTeX 2.9/
+fonts/type1/public/lm/lmro10.pfb><C:/Users/root/AppData/Local/Programs/MiKTeX 2
+.9/fonts/type1/public/lm/lmsy10.pfb>
+Output written on tcp.pdf (16 pages, 484105 bytes).
 PDF statistics:
- 109 PDF objects out of 1000 (max. 8388607)
+ 114 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 91 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 96 words of extra memory for PDF output out of 10000 (max. 10000000)
 
