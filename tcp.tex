@@ -21,6 +21,7 @@
 \usepackage{listings}
 \usepackage[normalem]{ulem}
 \usepackage{array}
+\usepackage{float}
 
 \begin{document}
 \chapter{Modeliranje TCP/IP omrežij}
@@ -29,7 +30,7 @@
 
 TCP/IP je model računalniškega omrežja, ki pove kako morajo biti podatki
 zapakirani, naslovljeni, poslani, usmerjeni in prejeti v končnem vozlišču.
-Največ omrežnega prometa poteka preko protokola TCP. Sporočila preko protokola TCP se zaradi vzpostavljene povezave med odjemalcem in servisom prenašajo zanesljivo v obe smeri, so brez napak, podvojevanja in v pravem vrstnem redu. Ker je TCP povezovalni protokol, se najprej vzpostavi povezava med odjemalcem in strežnikom. Pri povezavi je določen odjemalčev naslov IP in vrata (vrata lahko zavzemajo vrednost od 1 do vključno 65535), ter strežnikov naslov IP in vrata na katerih posluša servis strežnika. Naslov IP povezan z določenimi vrati tvorita vtičnico (socket) in par odjemalčeve in strežnikove vtičnice tvorita povezavo TCP, ki je edinstveno določena. Glava (header) paketa TCP vsebuje izvorni naslov IP in vrata, ciljni naslov IP in vrata, zaporedna številka paketa, številka potrditve in kontrolne zastavice. Kontrolni zastavici, pomembni za gradnjo požarnega zidu sta ACK in SYN.
+Največ omrežnega prometa poteka preko protokola TCP. Preko njega se sporočila zaradi vzpostavljene povezave med odjemalcem in servisom prenašajo zanesljivo v obe smeri, so brez napak, podvojevanja in v pravem vrstnem redu. Ker je TCP povezovalni protokol, se najprej vzpostavi povezava med odjemalcem in strežnikom. Pri povezavi je določen odjemalčev naslov IP in vrata (vrata lahko zavzemajo vrednost od 1 do vključno 65535), ter strežnikov naslov IP in vrata na katerih posluša servis strežnika. Naslov IP povezan z določenimi vrati tvorita vtičnico (socket) in par odjemalčeve in strežnikove vtičnice tvorita povezavo TCP, ki je edinstveno določena. Glava (header) paketa TCP vsebuje izvorni naslov IP in vrata, ciljni naslov IP in vrata, zaporedna številka paketa, številka potrditve in kontrolne zastavice. Kontrolni zastavici, pomembni za gradnjo požarnega zidu sta ACK in SYN. Drug del prometa se prenaša preko protokola UDP, ta ne zagotavlja prenosa podatkov tako kot to zagotavlja TCP, vendar je zato mnogo hitrejši. UDP se zato uporablja kadar ne potrebujemo vseh poslanih paketov, ne dovolimo pa veliko zamude pri njihovem prejemanju. Tako je primeren za prenose raznih multimedijskih vsebin.
 
 
 \section{Gradniki za realizacijo IPv4 omrežij}
@@ -162,16 +163,16 @@ Omrežja smo simulirali z tremi vrstami teoretičnih obremenitev: nadpovprečni 
 Za vse simulacije smo se odločili opazovati specifične statistične metrike, ki nam bodo povedali kakovost in delovanje omrežja. To so
 
 \begin{enumerate}
-	\item Povprečni čas čakanja paketov v čakalni vrsti.
-	\item Število izgubljenih paketov na določenih usmerjevalnikih.
-	\item Življenska doba paketov.RTT
+	\item Povprečni čas čakanja paketov v čakalni vrsti
+	\item Število izgubljenih paketov na določenih usmerjevalnikih
+	\item RTT
 \end{enumerate}
 
-Hkrati pa smo spreminjali naslednje parametre na simulacijah, saj smo z spremembami bolje videli razliko v delovanju omrežja
+Hkrati pa smo spreminjali naslednje parametre na simulacijah, saj smo s spremembami bolje videli razliko v delovanju omrežja
 
 \begin{enumerate}
-	\item Dolžina čakalnih vrst.
-	\item Frekvenco pošiljanja paketov.
+	\item Dolžina čakalnih vrst
+	\item Frekvenco pošiljanja paketov
 	\item Hitrost strežbe paketov
 \end{enumerate}
 
@@ -186,7 +187,7 @@ Podpovprečno obremenitev smo simulirali s 75 odjemalci, omrežje ni imelo hrbte
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=\textwidth]{lRtt1.png}
-	\caption{RTT paketov v podpovprečno obremenjenem omrežju}
+	\caption{RTT paketov v podpovprečno obremenjenem omrežju, na x osi so klienti, na y osi RTT v sekundah.}
 	\label{RTT1}	
 \end{figure}
 \pagebreak
@@ -195,7 +196,7 @@ Povprečno obremenitev smo simulirali z 175 odjemalci, sicer so simulacije potek
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=\textwidth]{aRtt1.png}
-	\caption{RTT paketov v povprečno obremenjenem omrežju}
+	\caption{RTT paketov v povprečno obremenjenem omrežju. Na x osi klienti, na y RTT v sekundah.}
 	\label{RTT2}	
 \end{figure}
 
@@ -204,14 +205,14 @@ Nadpovprečna obremenitev je zajemala 750 odjemalcev. Prišlo je do velike izgub
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=\textwidth]{hRtt1.png}
-	\caption{RTT paketov v nadpovprečno obremenjenem omrežju}
+	\caption{RTT paketov v nadpovprečno obremenjenem omrežju, na x osi so klienti, y prikazuje povprečen RTT v sekundah.}
 	\label{RTT3}	
 \end{figure}
 
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=\textwidth]{hPL1.png}
-	\caption{Delež izgubljenih paketov v nadpovprečno obremenjenem omrežju}
+	\caption{Delež izgubljenih paketov v nadpovprečno obremenjenem omrežju, x os prikazuje kliente, y delež izgubljenih paketov.}
 	\label{hPL1}	
 \end{figure}
 \pagebreak
@@ -225,7 +226,7 @@ Za podpovprečno obremenitev smo uporabili 75 klientov, izgub paketov ni bilo ne
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=\textwidth]{lRtt2.png}
-	\caption{RTT paketov v podpovprečno obremenjenem omrežju s hrbtenico}
+	\caption{RTT paketov v podpovprečno obremenjenem omrežju s hrbtenico. Na x osi klienti, na y RTT v sekundah.}
 	\label{RTT4}	
 \end{figure}
 
@@ -233,30 +234,45 @@ Povprečna obremenitev s 150 klienti ni utrpela izgub, ne glede na dolžino čak
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=\textwidth]{aRtt2.png}
-	\caption{RTT paketov v povprečno obremenjenem omrežju s hrbtenico}
+	\caption{RTT paketov v povprečno obremenjenem omrežju s hrbtenico. Na x osi klienti, na y osi RTT v sekundah.}
 	\label{RTT5}	
 \end{figure}
 
 \pagebreak
 
-Nadpovprečna obremenitev s 750 klienti tudi ob pomoči hrbtenice izgublja precej paketov, ob podaljšanju čakalnih vrst na 10 mest je izguba paketov praktično ničelna.
+Nadpovprečna obremenitev s 750 klienti tudi ob pomoči hrbtenice izgublja precej paketov, ob podaljšanju čakalnih vrst na 10 mest je izguba paketov praktično ničelna X.
 
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=\textwidth]{hRtt2.png}
-	\caption{RTT paketov v nadpovprečno obremenjenem omrežju s hrbtenico}
+	\caption{RTT paketov v nadpovprečno obremenjenem omrežju s hrbtenico. Na x osi so klienti, na y RTT v sekundah.}
 	\label{RTT6}	
 \end{figure}
 
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=\textwidth]{hLoss2.png}
-	\caption{Delež izgubljenih paketov v nadpovprečno obremenjenem omrežju s hrbtenico}
+	\caption{Delež izgubljenih paketov v nadpovprečno obremenjenem omrežju s hrbtenico. Na x osi so klienti, y os predstavlja delež.}
 	\label{hPL2}	
 \end{figure}
 
 \subsection{Primerjava omrežja z optično hrbtenico in brez} 
-Optična hrbtenica v vseh simulacijah občutno zmanjša RTT, tudi dvakratno. Do izgub še vedno prehaja, če usmerjevalniki ne zmorejo procesirati vseh paketov - kar prikazujejo grafi nadpovprečno obremenjenih omrežij, kjer izgube dosegajo do 1000 paketov, nekateri klienti niso prejeli odgovora na nobenega od poslanih 50 ping sporočil.
+Optična hrbtenica v vseh simulacijah občutno zmanjša RTT, tudi dvakratno. Do izgub še vedno prehaja, če usmerjevalniki ne zmorejo procesirati vseh paketov - kar prikazujejo grafi nadpovprečno obremenjenih omrežij, kjer izgube dosegajo do 1000 paketov, nekateri klienti niso prejeli odgovora na nobenega od poslanih 50 ping sporočil. Spreminjanje dolžine vrste ni doseglo večjega učnika, sprememba iz 2 na 200 ne reši mnogo več sporočil, ravno zaradi hitrosti pošiljanja klientov.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\textwidth]{casObremenitevTip.png}
+	\caption{Povprečen čas čakanja v vrsti glede na obremenitev in tip povezav.}
+	\label{cOT}	
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{rttPovezaveObr.png}
+	\caption{Povprečen RTT glede na obremenitev in tip povezav.}
+	\label{rOT}	
+\end{figure}
+
 
 \subsection{Simulacije omrežja 3 in 4}
 
@@ -318,7 +334,7 @@ Ob nadpovprečni obremenitvi smo ugotovili, da oba omrežja dosežeta nasičenos
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=\textwidth]{IZGUBE_PAKETOV_VRSTA_OBREMENITEV.png}
-	\caption{TCP RTT-ji glede na dolžino vrste in obremenitve}
+	\caption{TCP izgube paketov glede na dolžino vrste in obremenitve}
 	\label{6}	
 \end{figure}
 
