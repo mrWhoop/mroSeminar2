@@ -81,7 +81,7 @@ Omrežje je sestavljeno iz enega strežnika, 57 usmerjevalnikov in dveh odjemalc
 	\caption{Omrežje FlatNet in njegovi gradniki}
 	\label{flatNet}	
 \end{figure}
-
+\pagebreak
 \large\bf Analiza flatnet
 \normalfont \normalsize 
 
@@ -93,6 +93,7 @@ Ob zagonu simulacije se pošljejo iz odjemalca SYN paketi oz Synchronization pac
 \normalfont \normalsize 
 
 Omrežje je sestavljeno iz enega usmerjevalnika, tremi odjemalci in enim strežnikom. Namen je prikazati uporabo TCP client/Server modele za prenos večjih datotek ali "Bulktransfer". Dva odjemalca sta povezana z strežnikom preko usmerjevalnika, eden je pa povezan direktno, kot je razvidno na spodnji sliki.
+\pagebreak
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=\textwidth]{BulkTransfer.png}
@@ -257,7 +258,7 @@ Nadpovprečna obremenitev s 750 klienti tudi ob pomoči hrbtenice izgublja prece
 \end{figure}
 
 \subsection{Primerjava omrežja z optično hrbtenico in brez} 
-Optična hrbtenica v vseh simulacijah občutno zmanjša RTT, tudi dvakratno. Do izgub še vedno prehaja, če usmerjevalniki ne zmorejo procesirati vseh paketov - kar prikazujejo grafi nadpovprečno obremenjenih omrežij, kjer izgube dosegajo do 1000 paketov, nekateri klienti niso prejeli odgovora na nobenega od poslanih 50 ping sporočil. Spreminjanje dolžine vrste ni doseglo večjega učnika, sprememba iz 2 na 200 ne reši mnogo več sporočil, ravno zaradi hitrosti pošiljanja klientov.
+Optična hrbtenica v vseh simulacijah občutno zmanjša RTT, tudi dvakratno. Do izgub še vedno prihaja, če usmerjevalniki ne zmorejo procesirati vseh paketov - kar prikazujejo grafi nadpovprečno obremenjenih omrežij, kjer izgube dosegajo do 1000 paketov, nekateri klienti niso prejeli odgovora na nobenega od poslanih 50 ping sporočil. Spreminjanje dolžine vrste ni doseglo večjega učnika, sprememba iz 2 na 200 ne reši mnogo več sporočil, ravno zaradi hitrosti pošiljanja klientov.
 
 \begin{figure}[h]
 	\centering
@@ -283,16 +284,27 @@ Optična hrbtenica v vseh simulacijah občutno zmanjša RTT, tudi dvakratno. Do 
 	Simulacije& Frekvenca/interval pošiljanja paketov& Dolžina čakalne vrste \\
 	\hline 
 	simulacija 1 (TCP)& 1mb & 100\\
+	\hline 
 	simulacija 2 (TCP)& 10mb & 100\\
+	\hline 
 	simulacija 3 (TCP)& 100mb & 100\\
+	\hline 	
 	simulacija 4 (UDP)& 15ms & 10\\
+	\hline 
 	simulacija 5 (UDP)& 10ms & 10\\
+	\hline 
 	simulacija 6 (UDP)& 5ms & 10\\
+	\hline 
 	simulacija 7 (TCP)& 10mb &	10\\
+	\hline 
 	simulacija 8 (TCP)& 10mb & 50\\
+	\hline
 	simulacija 9 (TCP)& 10mb & 100\\
+	\hline
 	simulacija 10 (UDP)& 10ms & 10\\
+	\hline
 	simulacija 11 (UDP)& 10ms & 50\\
+	\hline
 	simulacija 12 (UDP)& 10ms & 100\\
 	\hline
 \end{tabular} 
